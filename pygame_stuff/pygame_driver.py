@@ -1,5 +1,5 @@
 import pygame
-
+import math
 class PygameDriver:
     def __init__(self):
         pass
@@ -8,7 +8,7 @@ class PygameDriver:
     def run():
 
         x = 25
-
+        y = 30
         # Initialize pygame
         pygame.init()
 
@@ -27,10 +27,11 @@ class PygameDriver:
                     running = False
 
             # Game logic
-            x = (x + 1) % screen_width
+            x = (x + math.sin(y)) % screen_width
+            
             # Drawing on the screen
             screen.fill((255, 255, 255))  # Fill the screen with white color
-            pygame.draw.rect(screen, (255, 0, 0), pygame.Rect(x, 30, 60, 60))
+            pygame.draw.rect(screen, (255, 0, 0), pygame.Rect(x, y, 60, 60))
 
             # Update the display
             pygame.display.flip()
