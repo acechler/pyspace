@@ -7,7 +7,10 @@ class TerminalDriver:
 
     @staticmethod
     def run():
-       print(colored('Hello, world!', 'green', 'on_black', ['underline']))
-       for i in range(1,10):
-           # Print index i in green
-              print(colored(i, 'green', 'on_black', ['underline']))
+       
+       values = [1,2,3,4,5,6,7,8,9,10]
+       for i in values:
+              if i % 2 == 0:
+                print(colored(i, 'green'), end=" ")
+              else:
+                print(colored(i, 'red'), end=" ")
