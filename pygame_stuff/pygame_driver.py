@@ -1,5 +1,7 @@
 import pygame
 import math
+import random
+
 class PygameDriver:
     def __init__(self):
         pass
@@ -32,13 +34,16 @@ class PygameDriver:
             # Game logic
             x = cx + r * math.cos(a)
             y = cy + r * math.sin(a)
-            a += 0.01  # adjust this value to change the speed of the square
+            a += 0.001  # adjust this value to change the speed of the square
 
             # Drawing on the screen
-            screen.fill((255, 255, 255))  # Fill the screen with white color
-            pygame.draw.rect(screen, (255, 0, 0), pygame.Rect(x, y, 60, 60))
+            screen.fill((0, 0, 0))  # Fill the screen with black color
+           
+            pygame.draw.line(screen,(255,0,0),(x,y),(cx,cy))
+            pygame.draw.line(screen,(255,0,0),(x,y),(cx-r,cy+r))
+            pygame.draw.line(screen,(255,0,0),(x+r,y-r),(x,y))
 
-
+            
             # Update the display
             pygame.display.flip()
 
