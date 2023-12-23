@@ -6,8 +6,8 @@ from terminal_stuff.terminal_driver import TerminalDriver
 
 def main():
     # Initialize and run the pygame instance
-     #driver = PygameDriver()
-     driver = TerminalDriver()
+     driver = PygameDriver()
+     #driver = TerminalDriver()
      driver.run()
 
 

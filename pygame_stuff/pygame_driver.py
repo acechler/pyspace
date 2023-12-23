@@ -2,6 +2,30 @@ import pygame
 import math
 import random
 
+class Node:
+    def __init__(self, value):
+        self.value = value
+
+class Graph:
+    def __init__(self):
+        self.adjacency_list = {}
+
+    def add_vertex(self, node):
+        self.adjacency_list[node] = []
+
+    def add_edge(self, node1, node2):
+        self.adjacency_list[node1].append(node2)
+        self.adjacency_list[node2].append(node1)
+
+    def remove_edge(self, node1, node2):
+        self.adjacency_list[node1].remove(node2)
+        self.adjacency_list[node2].remove(node1)
+
+    def remove_vertex(self, node):
+        while self.adjacency_list[node]:
+            adjacent_node = self.adjacency_list[node][-1]
+            self.remove_edge(node, adjacent_node)
+        self.adjacency_list.pop(node, None)
 
 class PygameDriver:
     def __init__(self):
@@ -14,6 +38,22 @@ class PygameDriver:
         y = 30
         # Initialize pygame
         pygame.init()
+
+        node1 = Node((10,20))
+        node2 = Node((40,60))
+        node3 = Node((80,20))
+        node4 = Node((200,20))
+        graph = Graph()
+
+        graph.add_vertex(node1)
+        graph.add_vertex(node2)
+        graph.add_vertex(node3)
+        graph.add_vertex(node4)
+
+
+        graph.add_edge(node1, node2)
+        graph.add_edge(node1, node3)
+        graph.add_edge(node2, node4)
 
         # Set up the display
         screen_width = 800
@@ -43,6 +83,7 @@ class PygameDriver:
             pygame.draw.line(screen,(255,0,0),(x,y),(cx,cy))
             pygame.draw.line(screen,(255,0,0),(x,y),(cx-r,cy+r))
             pygame.draw.line(screen,(255,0,0),(x+r,y-r),(x,y))
+
 
             
             # Update the display
