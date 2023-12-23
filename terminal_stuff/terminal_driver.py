@@ -25,7 +25,9 @@ class TerminalDriver:
 
     @staticmethod
     def run():
-       dtest = DecisionTest()
-       dtest.run()
+       lyear = LeapYear()
+       lyear.run()
+       #dtest = DecisionTest()
+       #dtest.run()
        #print(colored("Hello World",'green'),end=" ")
        
