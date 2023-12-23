@@ -16,7 +16,13 @@ class DecisionTest:
       else:
         print("Weird")
  
-
+class NoString:
+   def __init__(self):
+      pass
+   def run(self):
+      n = int(input())
+      for i in range(1,n+1,1):
+         print(i, end="")
 
 class TerminalDriver:
     def __init__(self):
@@ -25,8 +31,8 @@ class TerminalDriver:
 
     @staticmethod
     def run():
-       lyear = LeapYear()
-       lyear.run()
+      ns = NoString()
+      ns.run()
        #dtest = DecisionTest()
        #dtest.run()
        #print(colored("Hello World",'green'),end=" ")
